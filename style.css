@@ -79,6 +79,7 @@
         .proposal {
             text-align: center;
             margin: 40px 0;
+            color: #DF6D14;
         }
 
         .buttons {
@@ -102,7 +103,7 @@
 
         #noBtn {
             background: #DF6D14;
-            color: #ff4d6d;
+            color: #white;
             position: relative;
         }
 
