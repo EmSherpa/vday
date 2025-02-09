@@ -35,7 +35,6 @@
 
         <div class="quotes">
             <div class="quote">"Some cute cats for you 🥰"</div>
-            <div class="quote">"Because I am not taking our relationship for granted."</div>
 
         </div>
 
@@ -49,7 +48,7 @@
     </div>
 
     <div id="successModal" class="modal">
-        <div class="modal-content" style="background-image: url(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzJzNDkxdGZyN28yenR4NXVuMWtyMzQzaGQzZ295ZHFwdnVtbmk1dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/r1QDml4MjiVCRSvsDg/giphy.gif);">
+        <div class="modal-content" style="background-image: url(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzJzNDkxdGZyN28yenR4NXVuMWtyMzQzaGQzZ295ZHFwdnVtbmk1dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/r1QDml4MjiVCRSvsDg/giphy.gif); background-size: auto;">
             <h2>Yay! 💖</h2>
             <p>You've made me the happiest person in the world!<br>I love you to the moon and back! 🌙✨</p>
             <button onclick="closeModal()" style="margin-top: 15px;">Close</button>
@@ -75,11 +74,7 @@
         });
 
         const noBtn = document.getElementById('noBtn');
-        noBtn.addEventListener('mouseover', () => {
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 50);
-            noBtn.style.transform = `translate(${x}px, ${y}px)`;
-        });
+
         noBtn.addEventListener('click', () => {
             alert('I know you are just kidding 😜. Try clicking the YES button!');
         });
