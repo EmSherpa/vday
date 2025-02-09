@@ -1,0 +1,524 @@
+<<<<<<< Updated upstream
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Proposal 💘</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(45deg, #d8930a, #fff5e5);
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            color: #fff;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .image-slider {
+            display: flex;
+            width: 400%;
+            animation: slide 8s infinite;
+        }
+
+        .image-slider img {
+            width: 25%;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-25%); }
+            50% { transform: translateX(-50%); }
+            75% { transform: translateX(-75%); }
+            100% { transform: translateX(0); }
+        }
+
+        .quotes {
+            text-align: center;
+            margin: 40px 0;
+            color: #fff;
+        }
+
+        .quote {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5em;
+            margin: 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .proposal {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #yesBtn {
+            background: #ff4d6d;
+            color: white;
+        }
+
+        #noBtn {
+            background: #fff;
+            color: #ff4d6d;
+            position: relative;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff4d6d;
+            animation: float 3s infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .image-slider img { min-width: 250px; height: 250px; }
+            .quote { font-size: 1.2em; }
+            button { padding: 10px 20px; margin: 5px; }
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgMusic" autoplay loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Happy Valentine's Day, My Love! 💖</h1>
+        </header>
+
+     
+        <div class="slider-container">
+            <div class="image-slider">
+                <img src="https://source.unsplash.com/random/600x400/?love" alt="Love">
+                <img src="https://source.unsplash.com/random/600x400/?couple" alt="Couple">
+                <img src="https://source.unsplash.com/random/600x400/?romantic" alt="Romantic">
+                <img src="https://source.unsplash.com/random/600x400/?heart" alt="Heart">
+            </div>
+        </div>
+
+        <div class="quotes">
+            <div class="quote">"Love is composed of a single soul inhabiting two bodies."</div>
+            <div class="quote">"The best thing to hold onto in life is each other."</div>
+            <div class="quote">"I saw that you were perfect, and so I loved you."</div>
+        </div>
+
+        <div class="proposal">
+            <h2 style="color: white; margin-bottom: 20px;">Will you be my Valentine?</h2>
+            <div class="buttons">
+                <button id="yesBtn">YES! 💖</button>
+                <button id="noBtn">No 😢</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>Yay! 💖</h2>
+            <p>You've made me the happiest person in the world!<br>I love you to the moon and back! 🌙✨</p>
+            <button onclick="closeModal()" style="margin-top: 15px;">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Animate quotes on scroll
+        const quotes = document.querySelectorAll('.quote');
+        window.addEventListener('scroll', () => {
+            quotes.forEach(quote => {
+                const quoteTop = quote.getBoundingClientRect().top;
+                if (quoteTop < window.innerHeight - 100) {
+                    quote.classList.add('visible');
+                }
+            });
+        });
+
+        // Handle proposal buttons
+        document.getElementById('yesBtn').addEventListener('click', () => {
+            document.getElementById('successModal').style.display = 'flex';
+            createHearts();
+        });
+
+        document.getElementById('noBtn').addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            noBtn.style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        // Heart animation
+        function createHearts() {
+            const hearts = document.getElementById('hearts');
+            for (let i = 0; i < 50; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+                hearts.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        // Trigger initial quote animation
+        window.dispatchEvent(new Event('scroll'));
+
+        // Handle audio autoplay
+        document.addEventListener('click', () => {
+            document.getElementById('bgMusic').play();
+        }, { once: true });
+    </script>
+</body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Proposal 💘</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(45deg, #d8930a, #fff5e5);
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            color: #fff;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .image-slider {
+            display: flex;
+            width: 400%;
+            animation: slide 8s infinite;
+        }
+
+        .image-slider img {
+            width: 25%;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-25%); }
+            50% { transform: translateX(-50%); }
+            75% { transform: translateX(-75%); }
+            100% { transform: translateX(0); }
+        }
+
+        .quotes {
+            text-align: center;
+            margin: 40px 0;
+            color: #fff;
+        }
+
+        .quote {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5em;
+            margin: 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .proposal {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #yesBtn {
+            background: #ff4d6d;
+            color: white;
+        }
+
+        #noBtn {
+            background: #fff;
+            color: #ff4d6d;
+            position: relative;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff4d6d;
+            animation: float 3s infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .image-slider img { min-width: 250px; height: 250px; }
+            .quote { font-size: 1.2em; }
+            button { padding: 10px 20px; margin: 5px; }
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgMusic" autoplay loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Happy Valentine's Day, My Love! 💖</h1>
+        </header>
+
+     
+        <div class="slider-container">
+            <div class="image-slider">
+                <img src="https://source.unsplash.com/random/600x400/?love" alt="Love">
+                <img src="https://source.unsplash.com/random/600x400/?couple" alt="Couple">
+                <img src="https://source.unsplash.com/random/600x400/?romantic" alt="Romantic">
+                <img src="https://source.unsplash.com/random/600x400/?heart" alt="Heart">
+            </div>
+        </div>
+
+        <div class="quotes">
+            <div class="quote">"Love is composed of a single soul inhabiting two bodies."</div>
+            <div class="quote">"The best thing to hold onto in life is each other."</div>
+            <div class="quote">"I saw that you were perfect, and so I loved you."</div>
+        </div>
+
+        <div class="proposal">
+            <h2 style="color: white; margin-bottom: 20px;">Will you be my Valentine?</h2>
+            <div class="buttons">
+                <button id="yesBtn">YES! 💖</button>
+                <button id="noBtn">No 😢</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>Yay! 💖</h2>
+            <p>You've made me the happiest person in the world!<br>I love you to the moon and back! 🌙✨</p>
+            <button onclick="closeModal()" style="margin-top: 15px;">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Animate quotes on scroll
+        const quotes = document.querySelectorAll('.quote');
+        window.addEventListener('scroll', () => {
+            quotes.forEach(quote => {
+                const quoteTop = quote.getBoundingClientRect().top;
+                if (quoteTop < window.innerHeight - 100) {
+                    quote.classList.add('visible');
+                }
+            });
+        });
+
+        // Handle proposal buttons
+        document.getElementById('yesBtn').addEventListener('click', () => {
+            document.getElementById('successModal').style.display = 'flex';
+            createHearts();
+        });
+
+        document.getElementById('noBtn').addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            noBtn.style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        // Heart animation
+        function createHearts() {
+            const hearts = document.getElementById('hearts');
+            for (let i = 0; i < 50; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+                hearts.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        // Trigger initial quote animation
+        window.dispatchEvent(new Event('scroll'));
+
+        // Handle audio autoplay
+        document.addEventListener('click', () => {
+            document.getElementById('bgMusic').play();
+        }, { once: true });
+    </script>
+</body>
+>>>>>>> Stashed changes
+</html>
