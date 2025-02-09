@@ -5,7 +5,7 @@
         }
 
         body {
-            background: linear-gradient(45deg, #d8930a, #fff5e5);
+            background-color: #F8F5E9;
             font-family: 'Arial', sans-serif;
             overflow-x: hidden;
         }
@@ -19,11 +19,11 @@
         header {
             text-align: center;
             padding: 40px 0;
-            color: #fff;
+            color: #9DC08B;
         }
 
         h1 {
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Sans Serif';
             font-size: 4em;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
@@ -59,7 +59,7 @@
         .quotes {
             text-align: center;
             margin: 40px 0;
-            color: #fff;
+            color: #9DC08B;
         }
 
         .quote {
@@ -96,12 +96,12 @@
         }
 
         #yesBtn {
-            background: #ff4d6d;
+            background: #DF6D14;
             color: white;
         }
 
         #noBtn {
-            background: #fff;
+            background: #DF6D14;
             color: #ff4d6d;
             position: relative;
         }
