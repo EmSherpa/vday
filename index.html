@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <audio id="bgMusic" autoplay loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <audio id="bgMusic" autoplay loop >
+        <source src="audio/i found you.mp3" type="audio/mpeg">
     </audio>
 
     <div class="hearts" id="hearts"></div>
@@ -19,23 +19,28 @@
             <h1>Hello, My Love! 💖</h1>
         </header>
 
-        <div class="slider-container">
-            <div class="image-slider">
-                <img src="https://source.unsplash.com/random/600x400/?love" alt="Love">
-                <img src="https://source.unsplash.com/random/600x400/?couple" alt="Couple">
-                <img src="https://source.unsplash.com/random/600x400/?romantic" alt="Romantic">
-                <img src="https://source.unsplash.com/random/600x400/?heart" alt="Heart">
-            </div>
-        </div>
+            <div class="image-stack">
+                 </div>
+            <div class="image-container">
+                <div class="image-wrapper">
+                <img src="images/image (1).jpeg" alt="Love">
+                <img src="images/image (2).jpeg" alt="Couple">
+                <img src="images/image (3).jpeg" alt="Romantic">
+                <img src="images/image (4).jpeg" alt="Heart">
+                <img src="images/image (5).jpeg" alt="Heart">
+           
+                </div>
+              </div>
+              
 
         <div class="quotes">
             <div class="quote">"Some cute cats for you 🥰"</div>
-            <div class="quote">"The best thing to hold onto in life is each other."</div>
+            <div class="quote">"Because I am not taking our relationship for granted."</div>
 
         </div>
 
         <div class="proposal">
-            <h2 style="color: white; margin-bottom: 20px;">Will you be my Valentine?</h2>
+            <h2 style="color: rgb(66, 44, 44); margin-bottom: 20px;">Will you be my Valentine?</h2>
             <div class="buttons">
                 <button id="yesBtn">YES! 💖</button>
                 <button id="noBtn">No 😢</button>
@@ -44,7 +49,7 @@
     </div>
 
     <div id="successModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" style="background-image: url(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzJzNDkxdGZyN28yenR4NXVuMWtyMzQzaGQzZ295ZHFwdnVtbmk1dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/r1QDml4MjiVCRSvsDg/giphy.gif);">
             <h2>Yay! 💖</h2>
             <p>You've made me the happiest person in the world!<br>I love you to the moon and back! 🌙✨</p>
             <button onclick="closeModal()" style="margin-top: 15px;">Close</button>
@@ -74,6 +79,9 @@
             const x = Math.random() * (window.innerWidth - 100);
             const y = Math.random() * (window.innerHeight - 50);
             noBtn.style.transform = `translate(${x}px, ${y}px)`;
+        });
+        noBtn.addEventListener('click', () => {
+            alert('I know you are just kidding 😜. Try clicking the YES button!');
         });
 
         // Heart animation
